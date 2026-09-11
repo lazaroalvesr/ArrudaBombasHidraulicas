@@ -1,15 +1,15 @@
 'use client';
 
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Download } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const products = [
-  { name: 'Carretinha Pequena', tag: 'Compacta', price: 'R$ 185.000', specs: ['15 m³/h', '200 bar'], note: 'Compacta, emplacada e robusta. Ideal para obras residenciais, lajes e piscinas.', badge: 'PRONTA ENTREGA*', slug: 'carretinha-pequena', image: '/images/equipamentos/carretinha-pequena/Pequena_3.png', imageClass: 'bg-center' },
-  { name: 'Carretinha Rebocável', tag: 'Mobilidade', price: 'A partir de R$ 200.000', specs: ['—', '200 bar'], note: 'Mobilidade máxima entre obras. Robusta, prática e fácil de transportar.', badge: 'MOBILIDADE*', slug: 'carretinha-rebocavel', image: '/images/equipamentos/Rebocavel/Rebocavel_1.png', imageClass: 'bg-[position:70%_center]' },
-  { name: 'P700', tag: 'Mais vendido', price: 'R$ 180.000', specs: ['35 m³/h', '200 bar'], note: 'A bomba estacionária mais vendida do Brasil. Ideal para edifícios, galpões e fundações.', badge: 'MAIS VENDIDO*', slug: 'p700', image: '/images/equipamentos/P700/P700_1.png', imageClass: 'bg-[position:30%_center]' },
-  { name: 'MultiMix', tag: 'All-in-one', price: 'R$ 205.000', specs: ['2 betoneiras', '200 bar'], note: 'Mistura e bombeia ao mesmo tempo. Autonomia total em obras distantes.', badge: 'AUTONOMIA*', slug: 'multimix', image: '/images/equipamentos/multimix/multimix_1.png', imageClass: 'bg-center' },
-  { name: 'BetonBomba', tag: 'Combinado', price: 'R$ 165.000', specs: ['25 m³/h', '200 bar'], note: 'Betoneira + bomba integradas. Menor custo logístico e máxima praticidade.', badge: 'COMBINADO*', slug: 'betonbomba', image: '/images/equipamentos/Betonbomba/Beton_1.png', imageClass: 'bg-[position:70%_center]' },
+  { name: 'Carretinha Pequena', tag: 'Compacta', price: 'R$ 185.000', specs: ['15 m³/h', '200 bar'], note: 'Compacta, emplacada e robusta. Ideal para obras residenciais, lajes e piscinas.', badge: 'PRONTA ENTREGA*', slug: 'carretinha-pequena', image: '/images/equipamentos/carretinha-pequena/Pequena_3.webp', imageClass: 'bg-center' },
+  { name: 'Carretinha Rebocável', tag: 'Mobilidade', price: 'A partir de R$ 200.000', specs: ['—', '200 bar'], note: 'Mobilidade máxima entre obras. Robusta, prática e fácil de transportar.', badge: 'MOBILIDADE*', slug: 'carretinha-rebocavel', image: '/images/equipamentos/Rebocavel/Rebocavel_1.webp', imageClass: 'bg-[position:70%_center]' },
+  { name: 'P700', tag: 'Mais vendido', price: 'R$ 180.000', specs: ['35 m³/h', '200 bar'], note: 'A bomba estacionária mais vendida do Brasil. Ideal para edifícios, galpões e fundações.', badge: 'MAIS VENDIDO*', slug: 'p700', image: '/images/equipamentos/P700/P700_1.webp', imageClass: 'bg-[position:30%_center]' },
+  { name: 'MultiMix', tag: 'All-in-one', price: 'R$ 205.000', specs: ['2 betoneiras', '200 bar'], note: 'Mistura e bombeia ao mesmo tempo. Autonomia total em obras distantes.', badge: 'AUTONOMIA*', slug: 'multimix', image: '/images/equipamentos/multimix/multimix_1.webp', imageClass: 'bg-center' },
+  { name: 'BetonBomba', tag: 'Combinado', price: 'R$ 165.000', specs: ['25 m³/h', '200 bar'], note: 'Betoneira + bomba integradas. Menor custo logístico e máxima praticidade.', badge: 'COMBINADO*', slug: 'betonbomba', image: '/images/equipamentos/Betonbomba/Beton_1.webp', imageClass: 'bg-[position:70%_center]' },
 ];
 
 export function Equipment() {
@@ -72,13 +72,20 @@ export function Equipment() {
             </h2>
           </div>
 
-          <p
-            className="m-0 max-w-75 text-[14px] leading-[1.6] text-[#597695]
-              max-[640px]:mt-4.5"
-          >
-            *Valores e disponibilidade sujeitos a confirmação. Consulte a Arruda
-            para validar configuração e condições comerciais.
-          </p>
+          <div className="max-w-75 max-[640px]:mt-4.5">
+            <p className="m-0 text-[14px] leading-[1.6] text-[#597695]">
+              *Valores e disponibilidade sujeitos a confirmação. Consulte a Arruda
+              para validar configuração e condições comerciais.
+            </p>
+            <a
+              href="/Catalogo-Arruda-Bombas.pdf"
+              download
+              className="group mt-4 inline-flex cursor-pointer items-center gap-2 rounded-[7px] bg-[#f5c142] px-4 py-3 text-[13px] font-extrabold text-[#061f43] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_18px_rgba(6,31,67,.16)]"
+            >
+              Baixar catálogo completo
+              <Download aria-hidden="true" size={15} className="transition-transform duration-200 group-hover:translate-y-0.5" />
+            </a>
+          </div>
         </div>
 
         <div

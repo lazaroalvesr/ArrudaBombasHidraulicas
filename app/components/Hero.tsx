@@ -6,9 +6,9 @@ export function Hero() {
     <section
       id="inicio"
       className="relative grid min-h-190 items-center overflow-hidden text-white
-        bg-[linear-gradient(90deg,rgba(2,15,33,.9),rgba(2,15,33,.57),rgba(2,15,33,.22)),url('/images/bomab-concreto-vermlho.jpeg')]
+        bg-[linear-gradient(90deg,rgba(2,15,33,.9),rgba(2,15,33,.57),rgba(2,15,33,.22)),url('/images/bomab-concreto-vermlho.webp')]
         bg-cover bg-position-[center_46%] max-[900px]:min-h-160 max-[640px]:min-h-172.5
-        max-[640px]:bg-[linear-gradient(180deg,rgba(2,15,33,.88),rgba(2,15,33,.72)),url('/images/bomab-concreto-vermlho.jpeg')]
+        max-[640px]:bg-[linear-gradient(180deg,rgba(2,15,33,.88),rgba(2,15,33,.72)),url('/images/bomab-concreto-vermlho.webp')]
         max-[640px]:bg-position-[57%_center]"
     >
       <div

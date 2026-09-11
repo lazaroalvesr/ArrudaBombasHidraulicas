@@ -6,11 +6,11 @@ export const multimix = {
   slug: 'multimix',
 
   images: [
-    '/images/equipamentos/multimix/multimix_1.png',
-    '/images/equipamentos/multimix/multimix_2.png',
-    '/images/equipamentos/multimix/multimix_3.png',
-    '/images/equipamentos/multimix/multimix_4.png',
-    '/images/equipamentos/multimix/multimix_5.png',
+    '/images/equipamentos/multimix/multimix_1.webp',
+    '/images/equipamentos/multimix/multimix_2.webp',
+    '/images/equipamentos/multimix/multimix_3.webp',
+    '/images/equipamentos/multimix/multimix_4.webp',
+    '/images/equipamentos/multimix/multimix_5.webp',
   ],
 
   imageClass: 'bg-center',

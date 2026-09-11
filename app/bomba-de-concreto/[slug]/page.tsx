@@ -15,7 +15,7 @@ const WHATSAPP_NUMBER = '5519988701809';
 
 function getWhatsAppHref(productName: string) {
   const message = encodeURIComponent(
-    `Olá! Gostaria de solicitar um orçamento para o equipamento ${productName}.`,
+    `Olá! Vim pelo site da Arruda Bombas e gostaria de solicitar um orçamento para ${productName}.`,
   );
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   return {
-    title: product.name,
+    title: `${product.name} | Arruda Bombas Hidráulicas`,
     description: product.description,
   };
 }
@@ -347,7 +347,7 @@ export default async function ProductPage({ params }: PageProps) {
       />
       <section className="px-6 pb-20 pt-6 max-[640px]:px-4 max-[640px]:pb-14">
         <div className="mx-auto max-w-6xl rounded-3xl bg-[#0b1d35] px-8 py-16 text-center text-white shadow-[0_20px_46px_rgba(6,31,67,.16)] max-[640px]:px-6 max-[640px]:py-12">
-          <h2 className="mx-auto max-w-3xl font-[Manrope] text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-[1.04] tracking-[-.045em]">Vamos encontrar a bomba certa para a sua obra?</h2>
+          <h2 className="mx-auto max-w-3xl font-[Manrope] text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-[1.04] tracking-[-.045em]">Vamos encontrar o equipamento certo para a sua obra?</h2>
           <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-[#b7cae0]">Fale com a Arruda Bombas e receba uma orientação para o seu tipo de obra.</p>
           <a href={getWhatsAppHref(product.name)} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#f5c142] px-7 py-4 text-[15px] font-extrabold text-[#061f43] cursor-pointer transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1">Solicitar orçamento</a>
         </div>

@@ -14,7 +14,7 @@ const links = [
 ] as const;
 
 const WHATSAPP_ORCAMENTO =
-  'https://api.whatsapp.com/send?phone=5519988701809&text=Oi%21%20Vim%20pelo%20site%20da%20Arruda%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20bomba%20de%20concreto.';
+  'https://api.whatsapp.com/send?phone=5519988701809&text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Arruda%20Bombas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.';
 
 export function Header() {
   const pathname = usePathname();

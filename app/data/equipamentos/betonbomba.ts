@@ -6,11 +6,11 @@ export const betonbomba = {
   slug: 'betonbomba',
 
   images: [
-    '/images/equipamentos/Betonbomba/Beton_1.png',
-    '/images/equipamentos/Betonbomba/Beton_2.png',
-    '/images/equipamentos/Betonbomba/Beton_3.png',
-    '/images/equipamentos/Betonbomba/Beton_4.png',
-    '/images/equipamentos/Betonbomba/Beton_5.png',
+    '/images/equipamentos/Betonbomba/Beton_1.webp',
+    '/images/equipamentos/Betonbomba/Beton_2.webp',
+    '/images/equipamentos/Betonbomba/Beton_3.webp',
+    '/images/equipamentos/Betonbomba/Beton_4.webp',
+    '/images/equipamentos/Betonbomba/Beton_5.webp',
   ],
 
   imageClass: 'bg-[position:70%_center]',

@@ -18,6 +18,10 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'Arruda Bombas Hidráulicas | Bombas de concreto',
   description: 'Bombas de concreto hidráulicas para obras de todos os portes.',
+  icons: {
+    icon: [{ url: '/images/FavIcon.jpg', type: 'image/jpeg' }],
+    shortcut: ['/images/FavIcon.jpg'],
+  },
 };
 
 export default function RootLayout({
@@ -27,9 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/FavIcon.jpg" type="image/jpeg" />
-      </head>
       <body
         className={`${dmSans.variable} ${manrope.variable} m-0 bg-[#edf4fb]
           text-[#061f43]`}

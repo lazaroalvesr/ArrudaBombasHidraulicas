@@ -11,10 +11,10 @@ export const carretinhaRebocavel = {
   slug: 'carretinha-rebocavel',
 
   images: [
-    '/images/equipamentos/Rebocavel/Rebocavel_1.png',
-    '/images/equipamentos/Rebocavel/Rebocavel_2.png',
-    '/images/equipamentos/Rebocavel/Rebocavel_3.png',
-    '/images/equipamentos/Rebocavel/Rebocavel_5.png',
+    '/images/equipamentos/Rebocavel/Rebocavel_1.webp',
+    '/images/equipamentos/Rebocavel/Rebocavel_2.webp',
+    '/images/equipamentos/Rebocavel/Rebocavel_3.webp',
+    '/images/equipamentos/Rebocavel/Rebocavel_5.webp',
   ],
 
   imageClass: 'bg-[position:70%_center]',

@@ -92,7 +92,7 @@ export function About() {
             }`}
         >
           <img
-            src="/images/bomab-concreto-vermlho.jpeg"
+            src="/images/bomab-concreto-vermlho.webp"
             alt="Caminhão-bomba produzido pela Arruda Bombas Hidráulicas"
             className="absolute inset-0 h-full w-full object-cover"
           />

@@ -10,7 +10,7 @@ export function Factory() {
       >
         <div
           className="min-h-142.5 rounded-2xl
-            bg-[url('/images/equipamentos/P700/P700_1.png')] bg-cover bg-center
+            bg-[url('/images/equipamentos/P700/P700_1.webp')] bg-cover bg-center
             max-[640px]:min-h-87.5"
         />
 

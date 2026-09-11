@@ -183,7 +183,7 @@ export function ProductGallery({ images, name, badge }: ProductGalleryProps) {
                 max-[640px]:grid-cols-1"
             >
               <div
-                className="flex h-[min(72vh,660px)] flex-col gap-2
+                className="gallery-thumbnail-scroll flex h-[min(72vh,660px)] flex-col gap-2
                   overflow-x-hidden overflow-y-auto pr-1 max-[640px]:order-2 max-[640px]:h-auto
                   max-[640px]:max-h-none max-[640px]:flex-row
                   max-[640px]:overflow-x-auto max-[640px]:overflow-y-hidden

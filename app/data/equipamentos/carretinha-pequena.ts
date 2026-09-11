@@ -5,13 +5,13 @@ export const carretinhaPequena = {
   slug: 'carretinha-pequena',
 
   images: [
-    '/images/equipamentos/carretinha-pequena/Pequena_3.png',
-    '/images/equipamentos/carretinha-pequena/foto-2.jpeg',
-    '/images/equipamentos/carretinha-pequena/foto-3.jpeg',
-    '/images/equipamentos/carretinha-pequena/Pequena_1.png',
-    '/images/equipamentos/carretinha-pequena/Pequena_2.png',
-    '/images/equipamentos/carretinha-pequena/Pequena_4.png',
-    '/images/equipamentos/carretinha-pequena/Pequena_5.png',
+    '/images/equipamentos/carretinha-pequena/Pequena_3.webp',
+    '/images/equipamentos/carretinha-pequena/foto-2.webp',
+    '/images/equipamentos/carretinha-pequena/foto-3.webp',
+    '/images/equipamentos/carretinha-pequena/Pequena_1.webp',
+    '/images/equipamentos/carretinha-pequena/Pequena_2.webp',
+    '/images/equipamentos/carretinha-pequena/Pequena_4.webp',
+    '/images/equipamentos/carretinha-pequena/Pequena_5.webp',
   ],
 
   imageClass: 'bg-center',

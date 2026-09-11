@@ -6,11 +6,11 @@ export const p700 = {
   slug: 'p700',
 
   images: [
-    '/images/equipamentos/P700/P700_1.png',
-    '/images/equipamentos/P700/P700_2.png',
-    '/images/equipamentos/P700/P700_3.png',
-    '/images/equipamentos/P700/P700_4.png',
-    '/images/equipamentos/P700/P700_5.png',
+    '/images/equipamentos/P700/P700_1.webp',
+    '/images/equipamentos/P700/P700_2.webp',
+    '/images/equipamentos/P700/P700_3.webp',
+    '/images/equipamentos/P700/P700_4.webp',
+    '/images/equipamentos/P700/P700_5.webp',
   ],
 
   imageClass: 'bg-[position:30%_center]',
