@@ -1,7 +1,7 @@
 export const betonbomba = {
   name: 'BetonBomba',
   tag: 'Combinado',
-  price: 'R$ 165.000',
+  price: 'R$ 175.000',
   badge: 'COMBINADO*',
   slug: 'betonbomba',
 

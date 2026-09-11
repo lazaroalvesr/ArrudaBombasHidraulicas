@@ -6,10 +6,10 @@ import { useEffect, useRef, useState } from 'react';
 
 const products = [
   { name: 'Carretinha Pequena', tag: 'Compacta', price: 'R$ 185.000', specs: ['15 m³/h', '200 bar'], note: 'Compacta, emplacada e robusta. Ideal para obras residenciais, lajes e piscinas.', badge: 'PRONTA ENTREGA*', slug: 'carretinha-pequena', image: '/images/equipamentos/carretinha-pequena/Pequena_3.webp', imageClass: 'bg-center' },
-  { name: 'Carretinha Rebocável', tag: 'Mobilidade', price: 'A partir de R$ 200.000', specs: ['—', '200 bar'], note: 'Mobilidade máxima entre obras. Robusta, prática e fácil de transportar.', badge: 'MOBILIDADE*', slug: 'carretinha-rebocavel', image: '/images/equipamentos/Rebocavel/Rebocavel_1.webp', imageClass: 'bg-[position:70%_center]' },
+  { name: 'Carretinha Rebocável', tag: 'Mobilidade', price: 'A partir de R$ 180.000', specs: ['—', '200 bar'], note: 'Mobilidade máxima entre obras. Robusta, prática e fácil de transportar.', badge: 'MOBILIDADE*', slug: 'carretinha-rebocavel', image: '/images/equipamentos/Rebocavel/Rebocavel_1.webp', imageClass: 'bg-[position:70%_center]' },
   { name: 'P700', tag: 'Mais vendido', price: 'R$ 180.000', specs: ['35 m³/h', '200 bar'], note: 'A bomba estacionária mais vendida do Brasil. Ideal para edifícios, galpões e fundações.', badge: 'MAIS VENDIDO*', slug: 'p700', image: '/images/equipamentos/P700/P700_1.webp', imageClass: 'bg-[position:30%_center]' },
   { name: 'MultiMix', tag: 'All-in-one', price: 'R$ 205.000', specs: ['2 betoneiras', '200 bar'], note: 'Mistura e bombeia ao mesmo tempo. Autonomia total em obras distantes.', badge: 'AUTONOMIA*', slug: 'multimix', image: '/images/equipamentos/multimix/multimix_1.webp', imageClass: 'bg-center' },
-  { name: 'BetonBomba', tag: 'Combinado', price: 'R$ 165.000', specs: ['25 m³/h', '200 bar'], note: 'Betoneira + bomba integradas. Menor custo logístico e máxima praticidade.', badge: 'COMBINADO*', slug: 'betonbomba', image: '/images/equipamentos/Betonbomba/Beton_1.webp', imageClass: 'bg-[position:70%_center]' },
+  { name: 'BetonBomba', tag: 'Combinado', price: 'R$ 175.000', specs: ['25 m³/h', '200 bar'], note: 'Betoneira + bomba integradas. Menor custo logístico e máxima praticidade.', badge: 'COMBINADO*', slug: 'betonbomba', image: '/images/equipamentos/Betonbomba/Beton_1.webp', imageClass: 'bg-[position:70%_center]' },
 ];
 
 export function Equipment() {

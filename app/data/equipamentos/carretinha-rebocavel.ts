@@ -2,9 +2,9 @@ export const carretinhaRebocavel = {
   name: 'Carretinha Rebocável',
   tag: 'Mobilidade',
   subtitle: 'Mobilidade máxima entre obras',
-  price: 'R$ 200.000',
+  price: 'R$ 180.000',
   motorOptions: [
-    { name: 'Motor Perkins', price: 'R$ 200.000' },
+    { name: 'Motor Perkins', price: 'R$ 180.000' },
     { name: 'Motor MWM 229', price: 'R$ 210.000' },
   ],
   badge: 'MOBILIDADE*',
