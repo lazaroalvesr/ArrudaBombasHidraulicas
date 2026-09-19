@@ -23,7 +23,6 @@ export const carretinhaRebocavel = {
     'Projetada para quem precisa de flexibilidade. A Carretinha Rebocável combina robustez hidráulica com facilidade de transporte, permitindo deslocar o equipamento entre diferentes obras com agilidade.',
 
   specs: [
-
     {
       label: 'Pressão máxima',
       value: '200 bar',

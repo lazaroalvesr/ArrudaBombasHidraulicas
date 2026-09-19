@@ -1,17 +1,14 @@
 import { ArrowUpRight } from 'lucide-react';
 import { RevealSection } from './RevealSection';
 
-const youtubeVideo = {
-  id: '8ZCVIdFII9I',
-  label: 'EQUIPAMENTO EM OPERAÇÃO',
-  title: 'Veja a Arruda trabalhando em campo.',
-  description:
-    'Acompanhe uma demonstração real e veja o equipamento em funcionamento.',
-};
+const youtubeVideos = [
+  { id: 'etolmvTV4dw', label: 'VÍDEO 01' },
+  { id: 'GkjuqbdhcsQ', label: 'VÍDEO 02' },
+  { id: 'Oo08y2rHZj0', label: 'VÍDEO 03' },
+  { id: '8ZCVIdFII9I', label: 'VÍDEO 04' },
+];
 
 export function EquipmentVideos() {
-  const youtubeHref = `https://www.youtube.com/watch?v=${youtubeVideo.id}`;
-
   return (
     <RevealSection id="videos" className="my-6 max-[900px]:my-4 max-[640px]:my-3">
       <div
@@ -41,62 +38,54 @@ export function EquipmentVideos() {
             className="max-w-75 text-[14px] leading-[1.6] text-[#597695]
               max-[640px]:mt-4"
           >
-            Uma demonstração real para você conhecer o funcionamento do
+            Demonstrações reais para você conhecer o funcionamento do
             equipamento antes de solicitar seu orçamento.
           </p>
         </div>
 
-        <article
-          className="grid overflow-hidden rounded-2xl bg-[#061f43]
-            shadow-[0_20px_46px_rgba(6,31,67,.16)]
-            grid-cols-[1.3fr_.7fr] max-[900px]:grid-cols-1"
-        >
-          <div className="aspect-video bg-[#061629]">
-            <iframe
-              className="h-full w-full"
-              src={`https://www.youtube-nocookie.com/embed/${youtubeVideo.id}?rel=0`}
-              title="Equipamento Arruda Bombas em operação"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
+        <div className="grid grid-cols-2 gap-5 max-[640px]:grid-cols-1 max-[640px]:gap-4">
+          {youtubeVideos.map((video) => {
+            const youtubeHref = `https://www.youtube.com/watch?v=${video.id}`;
 
-          <div
-            className="flex flex-col justify-center p-9 text-white
-              max-[900px]:p-8 max-[640px]:p-6"
-          >
-            <span
-              className="text-[11px] font-bold tracking-[1.4px] text-[#f5c142]"
-            >
-              {youtubeVideo.label}
-            </span>
-            <h3
-              className="mt-3 font-[Manrope] text-[clamp(1.8rem,3vw,2.6rem)]
-                font-extrabold leading-[1.06] tracking-[-.04em]"
-            >
-              {youtubeVideo.title}
-            </h3>
-            <p className="mt-5 max-w-95 leading-7 text-[#bbcee2]">
-              {youtubeVideo.description}
-            </p>
-            <a
-              href={youtubeHref}
-              target="_blank"
-              rel="noreferrer"
-              className="group mt-8 inline-flex w-fit cursor-pointer items-center gap-2
-                border-b border-[#f5c142] pb-1 text-sm font-bold text-white
-                transition-colors duration-200 hover:text-[#f5c142]"
-            >
-              Assistir no YouTube
-              <ArrowUpRight
-                aria-hidden="true"
-                size={17}
-                className="transition-transform duration-200 ease-out
-                  group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </a>
-          </div>
-        </article>
+            return (
+              <article
+                key={video.id}
+                className="overflow-hidden rounded-2xl bg-[#061f43]
+                  shadow-[0_16px_34px_rgba(6,31,67,.14)]"
+              >
+                <div className="aspect-video bg-[#061629]">
+                  <iframe
+                    className="h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+                    title={`Arruda Bombas em operação — ${video.label}`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+
+                <div className="flex items-center justify-between gap-4 px-5 py-4 max-[640px]:px-4">
+                  <span className="text-[10px] font-extrabold tracking-[1.35px] text-[#f5c142]">
+                    {video.label} · EM OPERAÇÃO
+                  </span>
+                  <a
+                    href={youtubeHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex shrink-0 cursor-pointer items-center gap-1.5 text-[12px] font-bold text-white transition-colors duration-200 hover:text-[#f5c142]"
+                  >
+                    YouTube
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      size={15}
+                      className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </RevealSection>
   );

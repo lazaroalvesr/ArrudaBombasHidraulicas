@@ -2,9 +2,9 @@ import { RevealSection } from './RevealSection';
 const clients = [
   { name: 'Ambipar Group', logo: '/images/clientes/ambipar-group-logo.svg' },
   { name: 'BV Bombeamento', logo: '/images/clientes/bv-bombeamento.webp' },
-  { name: 'Central Mix', logo: '/images/clientes/central-mix.webp' },
+  { name: 'Concreteira Ibipitanga', logo: '/images/clientes/concreteira-ibipitanga.webp' },
   { name: 'Pacheco Concretos', logo: '/images/clientes/pacheco-concretos.webp' },
-  { name: 'RV Concreto', logo: '/images/clientes/rv-concreto.webp' },
+  { name: 'Leme Bombeamento', logo: '/images/clientes/leme.webp' },
 ];
 
 export function Clients() {

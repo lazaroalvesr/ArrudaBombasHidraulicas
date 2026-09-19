@@ -109,7 +109,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-[8px]
+                className="grid h-10 w-10 place-items-center rounded-lg
                   border border-white/10 bg-white/5 text-[#b8d1ea]
                   transition-colors duration-200 hover:border-[#f5c142]/40
                   hover:text-[#f5c142]"
@@ -180,7 +180,7 @@ export function Footer() {
         >
           <small className="text-[11px] text-[#8fb3d6]">
             © 2026 Arruda Bombas Hidráulicas Ltda. Todos os direitos reservados.
-            CNPJ: 00.000.000/0001-00
+            CNPJ: 51.456.807/0001-74
           </small>
 
           <small className="text-[11px] text-[#8fb3d6]">
