@@ -114,7 +114,7 @@ export function Footer() {
                   transition-colors duration-200 hover:border-[#f5c142]/40
                   hover:text-[#f5c142]"
               >
-                <Icon />
+                <Icon /> 
               </a>
             ))}
           </div>
