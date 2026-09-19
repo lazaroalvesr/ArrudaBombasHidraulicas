@@ -65,7 +65,7 @@ function FacebookIcon() {
 
 const social = [
   ['Instagram', 'https://www.instagram.com/arrudabombashidraulicas7/', InstagramIcon],
-  ['YouTube', 'https://www.youtube.com/@arrudabombas', YoutubeIcon],
+  ['YouTube', 'https://www.youtube.com/@arrudabombashidraulicas-z7d', YoutubeIcon],
   ['Facebook', 'https://facebook.com/', FacebookIcon],
 ] as const;
 

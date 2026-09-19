@@ -78,9 +78,8 @@ function EquipmentSelect({
         </span>
         <ChevronDown
           size={18}
-          className={`text-[#085bd9] transition-transform duration-200 ${
-            open ? 'rotate-180' : ''
-          }`}
+          className={`text-[#085bd9] transition-transform duration-200 ${open ? 'rotate-180' : ''
+            }`}
         />
       </button>
 
@@ -90,8 +89,7 @@ function EquipmentSelect({
           className={`absolute inset-x-0 top-[calc(100%+6px)] z-20 overflow-hidden
             rounded-[10px] border border-[#e0eaf4] bg-white py-1.5
             shadow-[0_16px_36px_rgba(6,31,67,.14)] transition-[opacity,transform]
-            duration-200 ease-out ${
-              visible ? 'translate-y-0 opacity-100' : '-translate-y-1.5 opacity-0'
+            duration-200 ease-out ${visible ? 'translate-y-0 opacity-100' : '-translate-y-1.5 opacity-0'
             }`}
         >
           {equipmentOptions.map((option) => (
@@ -103,10 +101,9 @@ function EquipmentSelect({
                   setOpen(false);
                 }}
                 className={`block w-full cursor-pointer px-4 py-2.75 text-left
-                  font-[DM_Sans] text-[14px] transition-colors duration-150 ${
-                    value === option
-                      ? 'bg-[#085bd9]/10 font-semibold text-[#085bd9]'
-                      : 'text-[#061f43] hover:bg-[#f2f6fb]'
+                  font-[DM_Sans] text-[14px] transition-colors duration-150 ${value === option
+                    ? 'bg-[#085bd9]/10 font-semibold text-[#085bd9]'
+                    : 'text-[#061f43] hover:bg-[#f2f6fb]'
                   }`}
               >
                 {option}
@@ -143,18 +140,18 @@ export function Contact() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const nome = String(formData.get('nome') ?? '').trim();
+    const from_name = String(formData.get('nome') ?? '').trim();
     const email = String(formData.get('email') ?? '').trim();
-    const whatsapp = String(formData.get('whatsapp') ?? '').trim();
+    const celular = String(formData.get('whatsapp') ?? '').trim();
     const nextErrors: FormErrors = {};
 
-    if (!nome) nextErrors.nome = 'Informe seu nome.';
+    if (!from_name) nextErrors.nome = 'Informe seu nome.';
     if (!email) {
       nextErrors.email = 'Informe seu e-mail.';
     } else if (!/^\S+@\S+\.\S+$/.test(email)) {
       nextErrors.email = 'Digite um e-mail válido.';
     }
-    if (!whatsapp) nextErrors.whatsapp = 'Informe seu WhatsApp.';
+    if (!celular) nextErrors.whatsapp = 'Informe seu WhatsApp.';
     if (!equipment) nextErrors.equipamento = 'Selecione o equipamento de interesse.';
 
     if (Object.keys(nextErrors).length > 0) {
@@ -183,11 +180,11 @@ export function Contact() {
           template_id: templateId,
           user_id: publicKey,
           template_params: {
-            nome,
+            from_name,
             email,
-            whatsapp,
+            celular,
             equipamento: equipment,
-            mensagem: formData.get('mensagem') || 'Não informada',
+            message: formData.get('mensagem') || 'Não informada',
             reply_to: email,
           },
         }),
@@ -272,13 +269,24 @@ export function Contact() {
               name="whatsapp"
               type="tel"
               aria-invalid={Boolean(errors.whatsapp)}
-              onChange={() => clearError('whatsapp')}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, '');
+
+                value = value
+                  .replace(/^(\d{2})(\d)/, '($1) $2')
+                  .replace(/(\d{5})(\d)/, '$1-$2')
+                  .slice(0, 15);
+
+                e.target.value = value;
+
+                clearError('whatsapp');
+              }}
               autoComplete="tel"
               inputMode="tel"
               placeholder="(19) 99999-9999"
               className="mt-1.75 block w-full border-0 border-b border-[#8fb3d6] aria-invalid:border-[#c53737]
-                bg-transparent py-3.5 font-[DM_Sans] text-[16px] text-[#061f43]
-                outline-none placeholder:text-[#597695]"
+      bg-transparent py-3.5 font-[DM_Sans] text-[16px] text-[#061f43]
+      outline-none placeholder:text-[#597695]"
             />
             <FieldError message={errors.whatsapp} />
           </label>
@@ -295,9 +303,9 @@ export function Contact() {
               name="mensagem"
               rows={3}
               placeholder="Conte rapidamente sobre a sua obra."
-              className="mt-1.75 block w-full resize-y border-0 border-b border-[#8fb3d6] aria-invalid:border-[#c53737]
+              className="mt-1.75 block w-full border-0 border-b border-[#8fb3d6] aria-invalid:border-[#c53737]
                 bg-transparent py-3.5 font-[DM_Sans] text-[16px] text-[#061f43]
-                outline-none placeholder:text-[#597695]"
+                outline-none placeholder:text-[#597695] resize-none"
             />
           </label>
 
@@ -323,13 +331,12 @@ export function Contact() {
             <p
               role="status"
               aria-live="polite"
-              className={`text-[13px] leading-5 ${
-                status === 'success'
+              className={`text-[13px] leading-5 ${status === 'success'
                   ? 'text-[#177443]'
                   : status === 'sending'
                     ? 'text-[#597695]'
                     : 'text-[#c53737]'
-              }`}
+                }`}
             >
               {statusMessage}
             </p>
