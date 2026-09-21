@@ -1,9 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, Check, ChevronRight, CreditCard } from 'lucide-react';
 import { ProductGallery } from '../../components/ProductGallery';
 import { ProductQuestions } from '../../components/ProductQuestions';
 import { products } from '../../data/equipamentos';
+import { getSiteUrl } from '../../site-url';
 
 type PageProps = {
   params: Promise<{
@@ -34,23 +36,44 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-
   const product = products.find((item) => item.slug === slug);
 
   if (!product) {
     return {
-      title: 'Equipamento não encontrado | Arruda Bombas Hidráulicas',
+      title: 'Equipamento não encontrado',
     };
   }
 
+  const productPath = `/bomba-de-concreto/${product.slug}`;
+
   return {
-    title: `${product.name} | Arruda Bombas Hidráulicas`,
+    title: product.name,
     description: product.description,
+    alternates: {
+      canonical: productPath,
+    },
+    openGraph: {
+      type: 'website',
+      url: productPath,
+      title: product.name,
+      description: product.description,
+      images: [
+        {
+          url: product.images[0],
+          alt: `${product.name} — Arruda Bombas Hidráulicas`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: product.name,
+      description: product.description,
+      images: [product.images[0]],
+    },
   };
 }
-
 export default async function ProductPage({ params }: PageProps) {
   const { slug } = await params;
 
@@ -61,11 +84,32 @@ export default async function ProductPage({ params }: PageProps) {
   }
 
   const relatedProducts = products.filter((item) => item.slug !== product.slug);
-
   const whatsappHref = getWhatsAppHref(product.name);
+  const productUrl = `${getSiteUrl()}/bomba-de-concreto/${product.slug}`;
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    image: product.images.map((image) => `${getSiteUrl()}${image}`),
+    brand: {
+      '@type': 'Brand',
+      name: 'Arruda Bombas Hidráulicas',
+    },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'BRL',
+      price: product.price.replace(/\D/g, ''),
+      url: productUrl,
+    },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* HERO */}
       <section
         style={{
