@@ -151,7 +151,7 @@ export function Contact() {
     } else if (!/^\S+@\S+\.\S+$/.test(email)) {
       nextErrors.email = 'Digite um e-mail válido.';
     }
-    if (!celular) nextErrors.whatsapp = 'Informe seu WhatsApp.';
+    if (!celular) nextErrors.whatsapp = 'Informe seu telefone.';
     if (!equipment) nextErrors.equipamento = 'Selecione o equipamento de interesse.';
 
     if (Object.keys(nextErrors).length > 0) {
@@ -264,7 +264,7 @@ export function Contact() {
           </label>
 
           <label className="text-[12px] font-bold text-[#204a75]">
-            WhatsApp
+            Telefone para contato
             <input
               name="whatsapp"
               type="tel"
@@ -283,7 +283,7 @@ export function Contact() {
               }}
               autoComplete="tel"
               inputMode="tel"
-              placeholder="(19) 99999-9999"
+              placeholder="Digite seu telefone"
               className="mt-1.75 block w-full border-0 border-b border-[#8fb3d6] aria-invalid:border-[#c53737]
       bg-transparent py-3.5 font-[DM_Sans] text-[16px] text-[#061f43]
       outline-none placeholder:text-[#597695]"

@@ -157,17 +157,6 @@ export function Footer() {
               Chácaras Fazenda Coelho, CEP 13185-503
             </li>
             <li className="text-[#b8d1ea]">Hortolândia, SP</li>
-            <li>
-              <a
-                href="https://api.whatsapp.com/send?phone=5519988701809"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-[#f5c142] transition-colors
-                  duration-200 hover:text-white"
-              >
-                (19) 98870-1809 — WhatsApp
-              </a>
-            </li>
           </ul>
         </div>
       </div>

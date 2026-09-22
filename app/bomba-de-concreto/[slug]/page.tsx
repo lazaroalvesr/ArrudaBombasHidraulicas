@@ -13,16 +13,6 @@ type PageProps = {
   }>;
 };
 
-const WHATSAPP_NUMBER = '5519988701809';
-
-function getWhatsAppHref(productName: string) {
-  const message = encodeURIComponent(
-    `Olá! Vim pelo site da Arruda Bombas e gostaria de solicitar um orçamento para ${productName}.`,
-  );
-
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-}
-
 function formatList(items: string[]) {
   if (items.length < 2) return items[0] ?? '';
   if (items.length === 2) return `${items[0]} e ${items[1]}`;
@@ -84,7 +74,6 @@ export default async function ProductPage({ params }: PageProps) {
   }
 
   const relatedProducts = products.filter((item) => item.slug !== product.slug);
-  const whatsappHref = getWhatsAppHref(product.name);
   const productUrl = `${getSiteUrl()}/bomba-de-concreto/${product.slug}`;
   const productSchema = {
     '@context': 'https://schema.org',
@@ -259,9 +248,7 @@ export default async function ProductPage({ params }: PageProps) {
               </div>
               {/* BOTÃO */}
               <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/#contato"
                 className="group mt-7 inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1
                   rounded-[7px] bg-[#f5c142] px-6 py-4 text-sm font-bold
                   text-[#061f43] transition-transform duration-200
@@ -393,7 +380,7 @@ export default async function ProductPage({ params }: PageProps) {
         <div className="mx-auto max-w-6xl rounded-3xl bg-[#0b1d35] px-8 py-16 text-center text-white shadow-[0_20px_46px_rgba(6,31,67,.16)] max-[640px]:px-6 max-[640px]:py-12">
           <h2 className="mx-auto max-w-3xl font-[Manrope] text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-[1.04] tracking-[-.045em]">Vamos encontrar o equipamento certo para a sua obra?</h2>
           <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-[#b7cae0]">Fale com a Arruda Bombas e receba uma orientação para o seu tipo de obra.</p>
-          <a href={getWhatsAppHref(product.name)} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#f5c142] px-7 py-4 text-[15px] font-extrabold text-[#061f43] cursor-pointer transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1">Solicitar orçamento</a>
+          <a href="/#contato" className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#f5c142] px-7 py-4 text-[15px] font-extrabold text-[#061f43] cursor-pointer transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1">Solicitar orçamento</a>
         </div>
       </section>
 

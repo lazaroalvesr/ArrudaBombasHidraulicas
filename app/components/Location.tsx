@@ -58,7 +58,7 @@ export function Location() {
                 ['ENDEREÇO', 'Chácaras Fazenda Coelho, CEP 13185-503'],
                 ['CIDADE', 'Hortolândia'],
                 ['ESTADO', 'SP'],
-                ['WHATSAPP', '(19) 98870-1809'],
+                ['ATENDIMENTO', 'Todo o Brasil'],
               ].map(([label, value]) => (
                 <span
                   key={label}

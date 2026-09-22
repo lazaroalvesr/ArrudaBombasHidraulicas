@@ -13,15 +13,13 @@ const links = [
   ['Contato', 'contato'],
 ] as const;
 
-const WHATSAPP_ORCAMENTO =
-  'https://api.whatsapp.com/send?phone=5519988701809&text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Arruda%20Bombas%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.';
-
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [rendered, setRendered] = useState(false);
   const [visible, setVisible] = useState(false);
+  const contactHref = pathname === '/' ? '#contato' : '/#contato';
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -105,10 +103,12 @@ export function Header() {
           {links.map(([label, id]) => (
             <Link
               key={id}
-              href={`#${id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(id);
+              href={pathname === '/' ? `#${id}` : `/#${id}`}
+              onClick={(event) => {
+                if (pathname === '/') {
+                  event.preventDefault();
+                  handleScroll(id);
+                }
               }}
               className="transition-colors duration-200 hover:text-[#f5c142]"
             >
@@ -118,9 +118,7 @@ export function Header() {
         </nav>
 
         <Link
-          href={WHATSAPP_ORCAMENTO}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={contactHref}
           className="group ml-auto inline-flex shrink-0 items-center justify-center
             gap-4 rounded-[7px] bg-[#f5c142] px-4 py-3.25 text-[13px] font-bold
             text-[#061f43] transition-all duration-500
@@ -190,7 +188,7 @@ export function Header() {
           {links.map(([label, id]) => (
             <Link
               key={id}
-              href={`#${id}`}
+              href={pathname === '/' ? `#${id}` : `/#${id}`}
               onClick={() => setOpen(false)}
               className="border-b border-white/10 px-5.5 py-4 transition-colors
                 duration-200 last:border-b-0 hover:bg-white/5
@@ -200,9 +198,7 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href={WHATSAPP_ORCAMENTO}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={contactHref}
             onClick={() => setOpen(false)}
             className="group m-3.75 inline-flex items-center justify-center gap-4
               rounded-[7px] bg-[#f5c142] px-4 py-3.25 text-[13px] font-bold

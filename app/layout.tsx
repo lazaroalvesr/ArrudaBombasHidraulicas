@@ -83,7 +83,6 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/images/Logo-ArrudaBombas.png`,
   image: `${siteUrl}/images/bomab-concreto-vermlho.webp`,
-  telephone: '+55-19-98870-1809',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Chácaras Fazenda Coelho',
