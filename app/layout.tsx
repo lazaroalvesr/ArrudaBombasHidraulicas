@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from './components/Header';
 import { HashlessScroll } from './components/HashlessScroll';
 import { Footer } from './components/Footer';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { getSiteUrl } from './site-url';
 
 const dmSans = DM_Sans({
@@ -116,6 +117,7 @@ export default function RootLayout({
         <HashlessScroll />
         {children}
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

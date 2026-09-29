@@ -1,11 +1,16 @@
 'use client';
 
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
 import { getWhatsAppHref } from '../whatsapp';
 
 export function Hero() {
   const whatsappHref = getWhatsAppHref();
+  const scrollToModels = () => {
+    document.getElementById('equipamentos')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
 
   return (
     <section
@@ -49,7 +54,7 @@ export function Hero() {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-4 
+            className="group inline-flex cursor-pointer items-center justify-center gap-4 
               rounded-[7px] bg-[#f5c142] px-4 py-3.25 text-[16px] font-bold 
               text-[#061f43] transition-transform duration-300 ease-out 
               backface-hidden will-change-transform transform-gpu 
@@ -64,22 +69,20 @@ export function Hero() {
             </span>
           </a>
 
-          <Link
-            href="#equipamentos"
-            className="group inline-flex items-center justify-center gap-4 
+          <button
+            type="button"
+            onClick={scrollToModels}
+            className="group inline-flex cursor-pointer items-center justify-center gap-4 
               rounded-[7px] border border-white/55 bg-transparent px-4 py-3.25 
               text-[15px] font-bold text-white transition-all duration-500 
               ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1 
               hover:bg-white/10 max-[640px]:w-full max-[640px]:justify-between"
           >
             Conheça os modelos
-            <span
-              className="transition-transform duration-500 
-                ease-[cubic-bezier(.22,1,.36,1)] group-hover:translate-y-1"
-            >
+            <span>
               <ArrowDown />
             </span>
-          </Link>
+          </button>
         </div>
 
         <div
