@@ -2,14 +2,10 @@
 
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import { getWhatsAppHref } from '../whatsapp';
 
 export function Hero() {
-  const scrollToContact = () => {
-    document.getElementById('contato')?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  };
+  const whatsappHref = getWhatsAppHref();
 
   return (
     <section
@@ -49,9 +45,10 @@ export function Hero() {
         </p>
 
         <div className="flex flex-wrap gap-3 max-[640px]:w-full max-[640px]:flex-col">
-          <button
-            type="button"
-            onClick={scrollToContact}
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-4 
               rounded-[7px] bg-[#f5c142] px-4 py-3.25 text-[16px] font-bold 
               text-[#061f43] transition-transform duration-300 ease-out 
@@ -65,7 +62,7 @@ export function Hero() {
             >
               <ArrowUpRight />
             </span>
-          </button>
+          </a>
 
           <Link
             href="#equipamentos"

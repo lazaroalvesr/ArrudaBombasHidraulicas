@@ -3,6 +3,7 @@
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { getWhatsAppHref } from '../whatsapp';
 
 export type ProductSpec = {
   label: string;
@@ -58,6 +59,7 @@ export function ProductPage({
   const specsReveal = useReveal();
   const appsReveal = useReveal();
   const relatedReveal = useReveal();
+  const whatsappHref = getWhatsAppHref(product.name);
 
 
   return (
@@ -164,7 +166,7 @@ export function ProductPage({
                 </div>
 
                 <a
-                  href="/#contato"
+                  href={whatsappHref} target="_blank" rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 cursor-pointer transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1
                     rounded-[7px] bg-[#f5c142] px-6 py-3.5 text-[14px] font-bold
                     text-[#061f43] transition-transform duration-200

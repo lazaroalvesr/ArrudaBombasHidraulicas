@@ -1,5 +1,6 @@
 import { RevealSection } from './RevealSection';
 import { ArrowUpRight } from 'lucide-react';
+import { getWhatsAppHref } from '../whatsapp';
 
 const services = [
   [
@@ -84,7 +85,9 @@ export function Services() {
               </p>
 
               <a
-                href="#contato"
+                href={getWhatsAppHref()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-1 text-[13px] cursor-pointer transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1 font-bold max-[900px]:hidden"
               >
                 Saiba mais <ArrowUpRight aria-hidden="true" size={15} className="shrink-0 transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { getWhatsAppHref } from '../whatsapp';
 
 export function About() {
+  const whatsappHref = getWhatsAppHref();
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(true);
 
@@ -69,13 +71,9 @@ export function About() {
             operação, manutenção e suporte técnico em Hortolândia, SP.
           </p>
           <a
-            href="#contato"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .getElementById('contato')
-                ?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block rounded-md bg-[#f5c142] px-6 py-3.5
               text-[14px] font-bold text-[#061f43] transition-colors
               hover:bg-[#e0af30]"

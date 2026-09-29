@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { getWhatsAppHref } from '../whatsapp';
 
 const links = [
   ['Sobre', 'quem-somos'],
@@ -19,7 +20,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [rendered, setRendered] = useState(false);
   const [visible, setVisible] = useState(false);
-  const contactHref = pathname === '/' ? '#contato' : '/#contato';
+  const whatsappHref = getWhatsAppHref();
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -117,8 +118,7 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          href={contactHref}
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer"
           className="group ml-auto inline-flex shrink-0 items-center justify-center
             gap-4 rounded-[7px] bg-[#f5c142] px-4 py-3.25 text-[13px] font-bold
             text-[#061f43] transition-all duration-500
@@ -132,7 +132,7 @@ export function Header() {
           >
             <ArrowUpRight />
           </span>
-        </Link>
+        </a>
 
         <button
           type="button"
@@ -197,8 +197,10 @@ export function Header() {
               {label}
             </Link>
           ))}
-          <Link
-            href={contactHref}
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="group m-3.75 inline-flex items-center justify-center gap-4
               rounded-[7px] bg-[#f5c142] px-4 py-3.25 text-[13px] font-bold
@@ -208,7 +210,7 @@ export function Header() {
             <span>
               <ArrowUpRight />
             </span>
-          </Link>
+          </a>
         </nav>
       ) : null}
     </header>
