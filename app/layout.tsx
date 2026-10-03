@@ -20,12 +20,12 @@ const manrope = Manrope({
 
 const siteUrl = getSiteUrl();
 const siteName = 'Arruda Bombas Hidráulicas';
-const siteDescription = 'Bombas de concreto hidráulicas para obras de todos os portes, com suporte técnico especializado em todo o Brasil.';
+const siteDescription = 'Bombas de concreto hidráulicas, estacionárias e rebocáveis para lajes, fundações, obras residenciais e comerciais. Atendimento técnico em todo o Brasil.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Bombas de concreto`,
+    default: 'Bomba de Concreto Hidráulica | Arruda Bombas',
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     'bomba de concreto',
     'bomba de concreto hidráulica',
     'bombeamento de concreto',
+    'bomba estacionária de concreto',
+    'carretinha rebocável para concreto',
+    'bomba de concreto para laje',
+    'bomba de concreto para fundação',
     'equipamentos para concreto',
     'Arruda Bombas Hidráulicas',
   ],
@@ -80,22 +84,36 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: siteName,
-  url: siteUrl,
-  logo: `${siteUrl}/images/Logo-ArrudaBombas.png`,
-  image: `${siteUrl}/images/bomab-concreto-vermlho.webp`,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Chácaras Fazenda Coelho',
-    addressLocality: 'Hortolândia',
-    addressRegion: 'SP',
-    postalCode: '13185-503',
-    addressCountry: 'BR',
-  },
-  sameAs: [
-    'https://www.instagram.com/arrudabombashidraulicas7/',
-    'https://www.youtube.com/@arrudabombashidraulicas-z7d',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      name: siteName,
+      url: siteUrl,
+      logo: `${siteUrl}/images/Logo-ArrudaBombas.png`,
+      image: `${siteUrl}/images/bomab-concreto-vermlho.webp`,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Chácaras Fazenda Coelho',
+        addressLocality: 'Hortolândia',
+        addressRegion: 'SP',
+        postalCode: '13185-503',
+        addressCountry: 'BR',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Brasil',
+      },
+      sameAs: [
+        'https://www.instagram.com/arrudabombashidraulicas7/',
+        'https://www.youtube.com/@arrudabombashidraulicas-z7d',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: siteName,
+      url: siteUrl,
+      inLanguage: 'pt-BR',
+    },
   ],
 };
 

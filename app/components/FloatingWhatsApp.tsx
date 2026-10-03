@@ -44,7 +44,7 @@ export function FloatingWhatsApp() {
         rel="noopener noreferrer"
         aria-label="Conversar com a Arruda Bombas pelo WhatsApp"
         title="Fale conosco pelo WhatsApp"
-        className="group relative inline-flex size-15 cursor-pointer items-center justify-center rounded-full bg-[#061f43] text-white shadow-[0_12px_28px_rgba(6,31,67,.32)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-[#0b315f] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#f5c142] max-[640px]:size-14"
+        className="group relative inline-flex size-15 cursor-pointer items-center justify-center rounded-full bg-[#25d366] text-white shadow-[0_12px_28px_rgba(37,211,102,.32)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-[#1fb958] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#f5c142] max-[640px]:size-14"
       >
         <span className="absolute inset-1 rounded-full border border-white/20" aria-hidden="true" />
         <Image src="/images/Whataspp-icon.png" alt="" width={36} height={36} className="relative size-9 object-contain" />

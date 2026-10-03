@@ -7,6 +7,7 @@ import { ProductQuestions } from '../../components/ProductQuestions';
 import { products } from '../../data/equipamentos';
 import { getSiteUrl } from '../../site-url';
 import { getWhatsAppHref } from '../../whatsapp';
+import { getProductFaq } from '../../product-faq';
 
 type PageProps = {
   params: Promise<{
@@ -38,18 +39,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const productPath = `/bomba-de-concreto/${product.slug}`;
+  const productType = product.specs.find((spec) => spec.label === 'Tipo')?.value;
+  const title = `${product.name}${productType ? ` — Bomba de concreto ${productType.toLowerCase()}` : ' — Bomba de concreto hidráulica'}`;
+  const description = `${product.description} Consulte configuração, disponibilidade e orçamento com a Arruda Bombas.`;
 
   return {
-    title: product.name,
-    description: product.description,
+    title,
+    description,
     alternates: {
       canonical: productPath,
     },
     openGraph: {
       type: 'website',
       url: productPath,
-      title: product.name,
-      description: product.description,
+      title,
+      description,
       images: [
         {
           url: product.images[0],
@@ -59,8 +63,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: product.name,
-      description: product.description,
+      title,
+      description,
       images: [product.images[0]],
     },
   };
@@ -77,22 +81,64 @@ export default async function ProductPage({ params }: PageProps) {
   const relatedProducts = products.filter((item) => item.slug !== product.slug);
   const whatsappHref = getWhatsAppHref(product.name);
   const productUrl = `${getSiteUrl()}/bomba-de-concreto/${product.slug}`;
+  const productFaq = getProductFaq(product.name, product.applications, product.specs);
   const productSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    description: product.description,
-    image: product.images.map((image) => `${getSiteUrl()}${image}`),
-    brand: {
-      '@type': 'Brand',
-      name: 'Arruda Bombas Hidráulicas',
-    },
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'BRL',
-      price: product.price.replace(/\D/g, ''),
-      url: productUrl,
-    },
+    '@graph': [
+      {
+        '@type': 'Product',
+        name: product.name,
+        description: product.description,
+        sku: product.slug,
+        image: product.images.map((image) => `${getSiteUrl()}${image}`),
+        brand: {
+          '@type': 'Brand',
+          name: 'Arruda Bombas Hidráulicas',
+        },
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'BRL',
+          price: product.price.replace(/\D/g, ''),
+          availability: 'https://schema.org/InStock',
+          itemCondition: 'https://schema.org/NewCondition',
+          url: productUrl,
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Início',
+            item: getSiteUrl(),
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Bombas de concreto',
+            item: `${getSiteUrl()}/#equipamentos`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: product.name,
+            item: productUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: productFaq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (

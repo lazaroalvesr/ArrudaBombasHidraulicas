@@ -1,12 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { operationVideos } from '../data/videos';
 import { RevealSection } from './RevealSection';
-
-const youtubeVideos = [
-  { id: 'etolmvTV4dw', label: 'VÍDEO 01' },
-  { id: 'GkjuqbdhcsQ', label: 'VÍDEO 02' },
-  { id: 'Oo08y2rHZj0', label: 'VÍDEO 03' },
-  { id: '8ZCVIdFII9I', label: 'VÍDEO 04' },
-];
 
 export function EquipmentVideos() {
   return (
@@ -44,9 +39,7 @@ export function EquipmentVideos() {
         </div>
 
         <div className="grid grid-cols-2 gap-5 max-[640px]:grid-cols-1 max-[640px]:gap-4">
-          {youtubeVideos.map((video) => {
-            const youtubeHref = `https://www.youtube.com/watch?v=${video.id}`;
-
+          {operationVideos.map((video) => {
             return (
               <article
                 key={video.id}
@@ -57,7 +50,7 @@ export function EquipmentVideos() {
                   <iframe
                     className="h-full w-full"
                     src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
-                    title={`Arruda Bombas em operação — ${video.label}`}
+                    title={video.title}
                     loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -66,21 +59,19 @@ export function EquipmentVideos() {
 
                 <div className="flex items-center justify-between gap-4 px-5 py-4 max-[640px]:px-4">
                   <span className="text-[10px] font-extrabold tracking-[1.35px] text-[#f5c142]">
-                    {video.label} · EM OPERAÇÃO
+                    {video.shortLabel} · EM OPERAÇÃO
                   </span>
-                  <a
-                    href={youtubeHref}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href={`/videos/${video.slug}`}
                     className="group inline-flex shrink-0 cursor-pointer items-center gap-1.5 text-[12px] font-bold text-white transition-colors duration-200 hover:text-[#f5c142]"
                   >
-                    YouTube
+                    Ver vídeo
                     <ArrowUpRight
                       aria-hidden="true"
                       size={15}
                       className="transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     />
-                  </a>
+                  </Link>
                 </div>
               </article>
             );

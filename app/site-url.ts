@@ -1,5 +1,5 @@
 export function getSiteUrl() {
-  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arrudabombas.com.br';
 
   return configuredUrl.replace(/\/$/, '');
 }
